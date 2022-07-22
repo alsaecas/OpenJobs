@@ -9,65 +9,64 @@ import {
   DrawerItem,
 } from "@react-navigation/drawer";
 import Icon from "react-native-vector-icons/Ionicons";
-import {ListScreen} from "../screens/ListScreen";
+import { ListScreen } from "../screens/ListScreen";
 import LoginScreen from "../screens/LoginScreen";
-import {DetailScreen} from "../screens/DetailScreen";
+import { DetailScreen } from "../screens/DetailScreen";
 import UserComponent from "../components/UserComponent";
 
-function CustomDrawerContent(props:any) {
-    return (
-      <DrawerContentScrollView {...props}>
-      <UserComponent/>
-        <DrawerItemList {...props} />
-      </DrawerContentScrollView>
-    );
-  }
-  
-  const Drawer = createDrawerNavigator();
-  const Stack = createStackNavigator();
-  
-  function Root() {
-    return (
-      <Drawer.Navigator
-          drawerContent={(props) => <CustomDrawerContent {...props} />}
-        >
-          <Drawer.Screen
-            name="Home"
-            component={ListScreen}
-            options={{
-              drawerIcon: (config) => <Icon size={23} name="list"></Icon>,
-            }}
-          />
-          <Drawer.Screen
-            name="Ofertas"
-            component={ListScreen}
-            options={{
-              drawerIcon: (config) => <Icon size={23} name="rocket"></Icon>,
-            }}
-          />
-          <Drawer.Screen
-            name="Perfil"
-            component={LoginScreen}
-            options={{
-              drawerIcon: (config) => <Icon size={23} name="person"></Icon>,
-            }}
-          />
-         
-        </Drawer.Navigator>
-    );
-  }
+function CustomDrawerContent(props: any) {
+  return (
+    <DrawerContentScrollView {...props}>
+      <UserComponent />
+      <DrawerItemList {...props} />
+    </DrawerContentScrollView>
+  );
+}
+
+const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
+
+function Root() {
+  return (
+    <Drawer.Navigator
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
+    >
+      <Drawer.Screen
+        name="Home"
+        component={ListScreen}
+        options={{
+          drawerIcon: (config) => <Icon size={23} name="list"></Icon>,
+        }}
+      />
+      <Drawer.Screen
+        name="Ofertas"
+        component={ListScreen}
+        options={{
+          drawerIcon: (config) => <Icon size={23} name="rocket"></Icon>,
+        }}
+      />
+      <Drawer.Screen
+        name="Perfil"
+        component={LoginScreen}
+        options={{
+          drawerIcon: (config) => <Icon size={23} name="person"></Icon>,
+        }}
+      />
+    </Drawer.Navigator>
+  );
+}
 
 export const AppRoutes = () => {
-    return (
-        <NavigationContainer>
+  return (
+    <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen
+        <Stack.Screen
           name="Root"
           component={Root}
           options={{ headerShown: false }}
         />
-      <Stack.Screen name="Detalles" component={DetailScreen} />
+        <Stack.Screen name="Detalles" component={DetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
-    )
-}
+  );
+};
