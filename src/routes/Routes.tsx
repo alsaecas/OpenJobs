@@ -10,14 +10,14 @@ import {
 } from "@react-navigation/drawer";
 import Icon from "react-native-vector-icons/Ionicons";
 import {ListScreen} from "../screens/ListScreen";
-import {LoginScreen} from "../screens/LoginScreen";
+import LoginScreen from "../screens/LoginScreen";
 import {DetailScreen} from "../screens/DetailScreen";
+import UserComponent from "../components/UserComponent";
 
 function CustomDrawerContent(props:any) {
     return (
       <DrawerContentScrollView {...props}>
-      
-        {/*<DrawerItem label="Logout" onPress={() => props.navigation.navigate("Logout")} />*/}
+      <UserComponent/>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
     );
