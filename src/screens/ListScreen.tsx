@@ -1,24 +1,23 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, ScrollView } from "react-native";
 import { View } from "react-native";
-import { Navigation } from '../types';
+import { Navigation } from "../types";
 import CardComponent from "../components/CardComponent";
 
 const styles = StyleSheet.create({
-    contentContainer: {
-      paddingTop: 10,
-      paddingBottom: 120,
-    },
-  });
+  contentContainer: {
+    paddingTop: 10,
+    paddingBottom: 120,
+  },
+});
 
-  type Props = {
-    navigation: Navigation;
-  };
+type Props = {
+  navigation: Navigation;
+};
 
 export const ListScreen = ({ navigation }: Props) => {
-
-    return (
-        <View>
+  return (
+    <View>
       <FlatList
         contentContainerStyle={styles.contentContainer}
         data={[
@@ -40,11 +39,11 @@ export const ListScreen = ({ navigation }: Props) => {
           <CardComponent
             title={item.key}
             content={item.content}
-            navigation={ navigation }
+            navigation={navigation}
           ></CardComponent>
         )}
         showsVerticalScrollIndicator={false}
       />
     </View>
-    )
-}
+  );
+};

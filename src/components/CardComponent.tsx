@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button, Card, Title, Paragraph, IconButton } from "react-native-paper";
 import { StyleSheet, View } from "react-native";
 
-const CardComponent = (props:any) => {
+const CardComponent = (props: any) => {
   const [heart, setHeart] = useState("heart-outline");
   const handleHeart = () => {
     if (heart == "heart-outline") {
